@@ -64,6 +64,13 @@ var containerEl = document.getElementsByClassName("person__container");
 for (var i = 0; i < containerEl.length; i++) {
   containerEl[i].addEventListener("click", function (event) {
     // Logic to execute when the element is clicked
+  containerEl[i].classList.value = "person__container";
+  if (e.target.classList.value === "person__container") {
+      e.target.classList.add("clicked");
+    }
+    else if (e.target.parentNode.parentNode.classList.value === "person__container"){
+      e.target.parentNode.parentNode.classList.add("clicked");
+    }
  });
 
 
