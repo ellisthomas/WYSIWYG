@@ -1,5 +1,5 @@
-var "blank" = document.getElementById("blank");
-var "blank" = document.getElementById("blank");
+var "userInput" = document.getElementById("userInput");
+var "outputEl" = document.getElementById("outputEl");
 var counter = 0;
 
 var "blank" = [
@@ -10,7 +10,7 @@ var "blank" = [
 		image: "http://www.famoussportspeople.com/wp-content/uploads/2016/04/michael-jordan-basketball-sport-wallpapers-hd-wallpapers-hd-celebrities-sports-photo-michael-jordan-wallpaper.jpg",
 		lifespan: {
 			birth: "February 17, 1963",
-			death: "Present",
+			death: "N/A",
 		}
 	},
 	{
@@ -20,7 +20,7 @@ var "blank" = [
 		image: "https://s-media-cache-ak0.pinimg.com/564x/e6/f6/7d/e6f67da119645910538452e019b85c2f.jpg",
 		lifespan: {
 			birth: "February 13, 1977",
-			death: "Present",
+			death: "N/A",
 		}
 	{,
 		title: "Superman", 
@@ -29,7 +29,7 @@ var "blank" = [
 		image: "http://media3.s-nbcnews.com/i/newscms/2016_27/1141336/michael-johnson-olympics-today-160706-tease_9cc50f4f84abe51822f591bed5695675.jpg",
 		lifespan: {
 			birth: "September 13, 1967",
-			death: "Present",
+			death: "N/A",
 		}
 	},
 	{
@@ -43,3 +43,30 @@ var "blank" = [
 		}
 	}	
 	}];
+
+for (var counter = 0; counter < 5; counter++) {
+  // Give each person element a unique identifier
+  outputEl.innerHTML += 
+	`<div class="person__container" id="person--${counter}">
+  		<person>
+          <img class="bioPic" src="${people[counter].image}">
+  			  <header> ${people[counter].title} ${people[counter].name}</header>
+  			  <section>${people[counter].bio} </section>
+  			  <footer>${people[counter].lifespan.birth} - ${people[counter].lifespan.death}</footer>
+  		</person>
+	</div>`;
+};
+
+// Now containerEl will have elements in it
+var containerEl = document.getElementsByClassName("person__container");
+
+// Event listeners are created
+for (var i = 0; i < containerEl.length; i++) {
+  containerEl[i].addEventListener("click", function (event) {
+    // Logic to execute when the element is clicked
+ });
+
+
+
+
+
