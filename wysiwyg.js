@@ -1,6 +1,3 @@
-var userInput = document.getElementById("userInput");
-var outputEl = document.getElementById("outputEl");
-var counter = 0;
 
 var people = [
 	{
@@ -34,8 +31,8 @@ var people = [
 		}
 	},
 	{
-		name: "name",
-		title: "title", 
+		name: "Muhammad Ali",
+		title: "Gut Punch", 
 		bio: "Muhammad Ali was an American professional boxer and activist. He is widely regarded as one of the most significant and celebrated sports figures of the 20th century. From early in his career, Ali was known as an inspiring, controversial, and polarizing figure both inside and outside the ring.",
 		image: "http://ndigo.com/wp-content/uploads/2016/06/Ali-boxing-ndigo-chicago.jpg",
 		lifespan: {
@@ -44,48 +41,55 @@ var people = [
 		}
 	}];
 
-for (var counter = 0; counter < 5; counter++) {
-  // Give each person element a unique identifier
-  outputEl.innerHTML += 
-	`<div class="person__container" id="person--${counter}">
-  		<person>
-  			<header>
-  				<h2>${people[counter].title}</h2>
-  				<h3>${people[counter].name}</h3>
-  			</header>
-          	<section><img class="bioPic" src="${people[counter].image}">${people[counter].bio} </section>
-  			<footer>Birth: ${people[counter].lifespan.birth} - Death: ${people[counter].lifespan.death}</footer>
-  		</person>
-	</div>`;
-};
 
-// Now containerEl will have elements in it
+var outputEl = document.getElementById("outputEl");
+var input = document.getElementById("input");
+var output = document.getElementById("output");
 var containerEl = document.getElementsByClassName("person__container");
+var clicked;
 
-document.addEventListener("click", function (e) {
-	var clickedBio = e.target;
-	console.log("clickedBio", clickedBio);
-	userInputText.focus();
-	userInputText.addEventListener("keyup", function(){
-	clickedBio.innerHTML = userInputText.value;
-	});
+
+function toDom() {
+	for (var i = 0; i < people.length; i++) {
+		console.log(people[i]);
+	  
+	  outputEl.innerHTML += 
+		`<div class="person__container" id="person--${i}">
+	  		<person>
+	  			<header class="child">
+	  				<h2 class="grandChild"> ${people[i].title}</h2>
+	  				<h3 calss="grandChild"> ${people[i].name}</h3>
+	  			</header>
+	          	<section class="child">
+	          		<img class=" grandChild bioPic" src="${people[i].image}"><br>Bio: ${people[i].bio} </section>
+	  			<footer class="child">
+	  				<p>Birth: ${people[i].lifespan.birth}<br>Death: ${people[i].lifespan.death}</p>
+	  			</footer>
+	  		</person>
+		</div>`;
+	}
+}	
+
+
+window.addEventListener("click", function(e) {
+    for (var k = 0; k < containerEl.length; k++) {
+        containerEl[k].classList.remove("clicked");
+    }
+    for (var j = 0; j < containerEl.length; j++) {
+        containerEl[j].classList.value = "person__container";
+    }
+    if (e.target.classList.value === "person__container") {
+        e.target.classList.add("clicked");
+    } else if (e.target.parentNode.parentNode.classList.value === "person__container") {
+        e.target.parentNode.parentNode.classList.add("clicked");
+    }
 });
 
-// Event listeners are created
-containerEl[i].addEventListener("click", function (e) {
-	for (var i = 0; i < containerEl.length; i++) {
-	// Logic to execute when the element is clicked
-	containerEl[i].classList.value = "person__container";
 
-	if (e.target.classList.value === "person__container") {
-	  e.target.classList.add("clicked");
-	}
-		else if (e.target.parentNode.parentNode.classList.value === "person__container"){
-		  e.target.parentNode.parentNode.classList.add("clicked");
-		}
-	}	
- });
 
+
+
+toDom();	
 
 
 
