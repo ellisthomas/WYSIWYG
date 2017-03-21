@@ -43,7 +43,7 @@ var people = [
 
 
 var outputEl = document.getElementById("outputEl");
-var input = document.getElementById("input");
+var userInput = document.getElementById("userInput");
 var output = document.getElementById("output");
 var containerEl = document.getElementsByClassName("person__container");
 var clicked;
@@ -71,23 +71,50 @@ function toDom() {
 }	
 
 
-window.addEventListener("click", function(e) {
-    for (var k = 0; k < containerEl.length; k++) {
+// for (var k = 0; k < containerEl.length; k++) {
+// 	containerEl[k].addEventListener("click", function(){
+// 		var person__container = document.getElementsByClassName("clicked");
+// 		for (var i = 0; i < person__container.length; i++){
+// 			person__container[i].classList.remove("clicked");
+// 		}
+// 			this.classList.add("clicked");
+// 			userInput.focus();
+// 	});
+
+// }
+
+
+
+
+
+	window.addEventListener("click", function(e) {
+for (var k = 0; k < containerEl.length; k++) {
         containerEl[k].classList.remove("clicked");
-    }
-    for (var j = 0; j < containerEl.length; j++) {
-        containerEl[j].classList.value = "person__container";
-    }
-    if (e.target.classList.value === "person__container") {
-        e.target.classList.add("clicked");
-    } else if (e.target.parentNode.parentNode.classList.value === "person__container") {
-        e.target.parentNode.parentNode.classList.add("clicked");
-    }
+    
+    	for (var j = 0; j < containerEl.length; j++) {
+        	containerEl[j].classList.value = "person__container";
+    	}
+    		if (e.target.classList.value === "person__container") {
+        	e.target.classList.add("clicked");
+    		} else if (e.target.parentNode.parentNode.classList.value === "person__container") {
+       		 e.target.parentNode.parentNode.classList.add("clicked");
+			this.focus();
+    	}
+
+}
+			// this.classList.add("clicked");
+	});
+
+
+    	// userInput.focus();
+
+
+window.addEventListener("keypress", function(e){
+	if(event.keyCode === 13){
+		userInput.value = "";
+		return false;
+	}
 });
-
-
-
-
 
 toDom();	
 
