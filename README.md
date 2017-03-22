@@ -13,7 +13,8 @@ When you click on one of the person elements, the text input should immediately 
 When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
 When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 
-###Final result
+###Screenshot
+![WYSIWYG](https://raw.githubusercontent.com/ellisthomas/WYSIWYG/branch1/screenshot/Screen%20Shot%202017-03-21%20at%2010.26.34%20PM.png)
 
 ###Lanuages Used
 [](html5.png)<img src="https://raw.githubusercontent.com/tkswann2/tech-logos/master/html5.png" height="40">
@@ -23,6 +24,7 @@ When you press the enter/return key when typing in the input field, then the con
 ###How to run (Node must be installed on your machine):
 ```
 git clone https://git@github.com:ellisthomas/WYSIWYG.git
+cd wysiwyg
 npm install http-server -g
 http-server -p 8080
 ```
