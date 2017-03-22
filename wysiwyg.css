@@ -1,3 +1,6 @@
+body {
+	background-color: black;
+}
 .person__container {
 	display: inline-block;
 	border: 5px solid black;
